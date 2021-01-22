@@ -1,0 +1,52 @@
+﻿<Window x:Class="TimerProgram.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimerProgram"
+        mc:Ignorable="d"
+        Title="Simga's Timer" Height="450" Width="800" Background="#FC2E3440" Visibility="Visible" ResizeMode="CanMinimize" Opacity="1">
+    <Window.Effect>
+        <DropShadowEffect/>
+    </Window.Effect>
+
+    <Grid Visibility="Visible">
+
+        <TextBlock x:Name="MainTime" HorizontalAlignment="Center" Height="179" TextWrapping="Wrap" VerticalAlignment="Top" Width="566" Foreground="#FFECEFF4" FontSize="150" TextAlignment="Center" Margin="0,39,0,0">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect><Run Text="00:00:00"/></TextBlock>
+        <Ellipse x:Name="start" Height="100" Stroke="#FFECEFF4" Width="100" VerticalAlignment="Top" Margin="0,257,0,0" HorizontalAlignment="Center" StrokeThickness="5" Fill="#FF2D333F" Cursor="Hand" MouseEnter="start_MouseEnter" MouseLeave="start_MouseLeave" MouseDown="start_MouseDown">
+            <Ellipse.Effect>
+                <DropShadowEffect/>
+            </Ellipse.Effect>
+        </Ellipse>
+        <Canvas Height="50" Width="50" Margin="390,284,383,80" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Polygon x:Name="PlayButtonIcon" Fill="#00000000" Stroke="#ECEFF4" StrokeThickness="3" StrokeStartLineCap="round" StrokeEndLineCap="round" StrokeLineJoin="round" Points="16.5,13 16.5,37 33.5,25 " VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible" MouseDown="start_MouseDown" MouseLeave="start_MouseLeave" MouseEnter="start_MouseEnter" Cursor="Hand" />
+            <Path Fill="#00000000" Stroke="#ECEFF4" StrokeStartLineCap="round" StrokeEndLineCap="round" StrokeLineJoin="round" Data="M20.5,14.8" />
+            <Rectangle x:Name="pauseA1" Height="27" Canvas.Left="14.979" Stroke="#FFECEFF4" Canvas.Top="11.395" Width="3" Fill="#FFECEFF4" Visibility="Hidden"/>
+            <Rectangle x:Name="pauseB1" Height="27" Canvas.Left="27.091" Stroke="#FFECEFF4" Canvas.Top="11.5" Width="3" Fill="#FFECEFF4" Visibility="Hidden"/>
+            <Ellipse x:Name="pauseB2" Height="3" Canvas.Left="27.091" Stroke="#FFECEFF4" Canvas.Top="10" Width="3" Fill="#FFECEFF4" Visibility="Hidden"/>
+            <Ellipse x:Name="pauseA2" Height="3" Canvas.Left="14.979" Stroke="#FFECEFF4" Canvas.Top="10" Width="3" Fill="#FFECEFF4" Visibility="Hidden"/>
+            <Ellipse x:Name="pauseA3" Height="3" Canvas.Left="14.979" Stroke="#FFECEFF4" Canvas.Top="37" Width="3" Fill="#FFECEFF4" Visibility="Hidden"/>
+            <Ellipse x:Name="pauseB3" Height="3" Canvas.Left="27.091" Stroke="#FFECEFF4" Canvas.Top="37" Width="3" Fill="#FFECEFF4" Visibility="Hidden"/>
+        </Canvas>
+        <Ellipse x:Name="Reset" Height="70" Stroke="#FFECEFF4" Width="70" VerticalAlignment="Top" Margin="471,274,0,0" HorizontalAlignment="Left" StrokeThickness="5" Fill="#FF2D333F" Cursor="Hand" MouseEnter="reset_MouseEnter" MouseLeave="reset_MouseLeave" MouseDown="reset_MouseDown">
+            <Ellipse.Effect>
+                <DropShadowEffect/>
+            </Ellipse.Effect>
+        </Ellipse>
+
+        <Canvas Name="svg8" Width="36" Height="36" Margin="626,281,138,117"  MouseDown="reset_MouseDown" MouseLeave="reset_MouseLeave" MouseEnter="reset_MouseEnter" Cursor="Hand" >
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4" Fill="#FFECEFF4" Canvas.Left="-139.373" Canvas.Top="10.688">
+                <Path.Data>
+                    <PathGeometry Figures="M22.4 11.65a1.09 1.09 0 0 0 1.09 1.09H34.43V1.81a1.09 1.09 0 1 0-2.19 0V8.95a16.41 16.41 0 1 0 1.47 15.86 1.12 1.12 0 0 0-2.05-.9 14.18 14.18 0 1 1-1.05-13.36H23.5A1.09 1.09 0 0 0 22.4 11.65Z" FillRule="NonZero"/>
+                </Path.Data>
+            </Path>
+        </Canvas>
+    </Grid>
+</Window>

@@ -1,0 +1,6 @@
+<Viewbox Stretch="Uniform" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Canvas Height="50" Width="50">
+    <Polygon Fill="#00000000" Stroke="#ECEFF4" StrokeThickness="3" StrokeStartLineCap="round" StrokeEndLineCap="round" StrokeLineJoin="round" Points="16.5,13 16.5,37 33.5,25 " />
+    <Path Fill="#00000000" Stroke="#ECEFF4" StrokeStartLineCap="round" StrokeEndLineCap="round" StrokeLineJoin="round" Data="M20.5,14.8" />
+  </Canvas>
+</Viewbox>
