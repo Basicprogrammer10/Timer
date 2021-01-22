@@ -104,5 +104,23 @@ namespace TimerProgram
         {
             Reset.Fill = new SolidColorBrush(BkLv);
         }
+
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void Exit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.Close();
+        }
+
+        private void Mini_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                WindowState = WindowState.Minimized;
+        }
     }
 }
