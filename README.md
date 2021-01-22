@@ -3,4 +3,4 @@
 
 **Currently in BETA**
 
-![Image](https://i.imgur.com/Xm9sXKQ.png)
+![Image](https://i.imgur.com/7I5pHf3.png)
