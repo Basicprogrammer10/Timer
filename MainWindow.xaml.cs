@@ -125,7 +125,7 @@ namespace TimerProgram
 
         private void info_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Made by Sigma#8214");
+            MessageBox.Show("Made by Sigma#8214\nConnor@connorcode.com","Sigma's Timer", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void info_MouseEnter(object sender, MouseEventArgs e)
