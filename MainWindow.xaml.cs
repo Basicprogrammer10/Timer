@@ -122,5 +122,20 @@ namespace TimerProgram
             if (e.ChangedButton == MouseButton.Left)
                 WindowState = WindowState.Minimized;
         }
+
+        private void info_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Made by Sigma#8214");
+        }
+
+        private void info_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Reset_Copy.Fill = new SolidColorBrush(BkHv);
+        }
+
+        private void info_MouseLeave(object sender, MouseEventArgs e)
+        {
+           Reset_Copy.Fill = new SolidColorBrush(BkLv);
+        }
     }
 }

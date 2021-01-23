@@ -81,5 +81,23 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <Ellipse x:Name="Reset_Copy" Height="70" Stroke="#FFECEFF4" Width="70" VerticalAlignment="Top" Margin="260,299,0,0" HorizontalAlignment="Left" StrokeThickness="5" Fill="#FF2D333F" Cursor="Hand" MouseEnter="info_MouseEnter" MouseLeave="info_MouseLeave" MouseDown="info_MouseDown">
+            <Ellipse.Effect>
+                <DropShadowEffect/>
+            </Ellipse.Effect>
+        </Ellipse>
+
+        <Canvas Name="svg12" Width="36" Height="36" Margin="277,316,487,98" Cursor="Hand" MouseDown="info_MouseDown" MouseEnter="info_MouseEnter" MouseLeave="info_MouseLeave">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources/>
+            <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="16.6" Canvas.Top="9" Width="2.8" Height="2.8" Name="circle4" Fill="#FFECEFF4"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path6" Fill="#FFECEFF4">
+                <Path.Data>
+                    <PathGeometry Figures="M21 25H19V14.1H16a1 1 0 0 0 0 2h1V25H15a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2Z" FillRule="NonZero"/>
+                </Path.Data>
+            </Path>
+        </Canvas>
     </Grid>
 </Window>

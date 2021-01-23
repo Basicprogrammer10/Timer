@@ -6,4 +6,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="SmallSigma.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="SmallSigma.png" />
+  </ItemGroup>
+
 </Project>
