@@ -6,13 +6,13 @@ using System.Windows.Threading;
 
 namespace TimerProgram
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
-        DispatcherTimer dispatcherTimer;
-        public Color BkHv = Color.FromRgb(67, 76, 94);
-        public Color BkLv = Color.FromRgb(45, 51, 63);
-        public static int runtime = 0;
-        public bool running = false;
+        private static int _runtime;
+        private readonly Color BkHv = Color.FromRgb(67, 76, 94);
+        private readonly Color BkLv = Color.FromRgb(45, 51, 63);
+        private DispatcherTimer DispatcherTimer;
+        private bool Running;
 
         public MainWindow()
         {
@@ -21,78 +21,75 @@ namespace TimerProgram
 
         private void start_MouseEnter(object sender, MouseEventArgs e)
         {
-            start.Fill = new SolidColorBrush(BkHv);
+            Start.Fill = new SolidColorBrush(BkHv);
         }
 
         private void start_MouseLeave(object sender, MouseEventArgs e)
         {
-            start.Fill = new SolidColorBrush(BkLv);
+            Start.Fill = new SolidColorBrush(BkLv);
         }
 
-        private void toggleVis(bool toggle)
+        private void ToggleVis(bool toggle)
         {
             if (toggle)
             {
                 PlayButtonIcon.Visibility = Visibility.Hidden;
-                pauseA1.Visibility = Visibility.Visible;
-                pauseA2.Visibility = Visibility.Visible;
-                pauseA3.Visibility = Visibility.Visible;
-                pauseB1.Visibility = Visibility.Visible;
-                pauseB2.Visibility = Visibility.Visible;
-                pauseB3.Visibility = Visibility.Visible;
+                PauseA1.Visibility = Visibility.Visible;
+                PauseA2.Visibility = Visibility.Visible;
+                PauseA3.Visibility = Visibility.Visible;
+                PauseB1.Visibility = Visibility.Visible;
+                PauseB2.Visibility = Visibility.Visible;
+                PauseB3.Visibility = Visibility.Visible;
             }
             else
             {
                 PlayButtonIcon.Visibility = Visibility.Visible;
-                pauseA1.Visibility = Visibility.Hidden;
-                pauseA2.Visibility = Visibility.Hidden;
-                pauseA3.Visibility = Visibility.Hidden;
-                pauseB1.Visibility = Visibility.Hidden;
-                pauseB2.Visibility = Visibility.Hidden;
-                pauseB3.Visibility = Visibility.Hidden;
+                PauseA1.Visibility = Visibility.Hidden;
+                PauseA2.Visibility = Visibility.Hidden;
+                PauseA3.Visibility = Visibility.Hidden;
+                PauseB1.Visibility = Visibility.Hidden;
+                PauseB2.Visibility = Visibility.Hidden;
+                PauseB3.Visibility = Visibility.Hidden;
             }
         }
 
         private void start_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (!running)
+            if (!Running)
             {
-                dispatcherTimer = new DispatcherTimer();
-                dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-                dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-                dispatcherTimer.Start();
-                running = true;
-                toggleVis(true);
+                DispatcherTimer = new DispatcherTimer();
+                DispatcherTimer.Tick += dispatcherTimer_Tick;
+                DispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+                DispatcherTimer.Start();
+                Running = true;
+                ToggleVis(true);
             }
             else
             {
-                dispatcherTimer.Stop();
-                running = false;
-                toggleVis(false);
+                DispatcherTimer.Stop();
+                Running = false;
+                ToggleVis(false);
             }
         }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            runtime++;
-            int sec = runtime - (runtime / 60) * 60;
-            int min = (runtime / 60) - runtime / 60 / 60 * 60;
-            int hor = runtime / 60 / 60;
+            _runtime++;
+            var Sec = _runtime - _runtime / 60 * 60;
+            var Min = _runtime / 60 - _runtime / 60 / 60 * 60;
+            var Hor = _runtime / 60 / 60;
 
-            MainTime.Text = String.Format("{2}:{1}:{0}", sec.ToString().PadLeft(2, '0'), min.ToString().PadLeft(2, '0'), hor.ToString().PadLeft(2, '0'));
+            MainTime.Text = string.Format("{2}:{1}:{0}", Sec.ToString().PadLeft(2, '0'), Min.ToString().PadLeft(2, '0'), Hor.ToString().PadLeft(2, '0'));
         }
 
         private void reset_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
-            if (running)
-            {
-                dispatcherTimer.Stop();
-            }
-            running = false;
-            runtime = 0;
+            if (Running)
+                DispatcherTimer.Stop();
+            Running = false;
+            _runtime = 0;
             MainTime.Text = "00:00:00";
-            toggleVis(false);
+            ToggleVis(false);
         }
 
         private void reset_MouseEnter(object sender, MouseEventArgs e)
@@ -108,13 +105,13 @@ namespace TimerProgram
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
+                DragMove();
         }
 
         private void Exit_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
-                this.Close();
+                Close();
         }
 
         private void Mini_MouseDown(object sender, MouseButtonEventArgs e)
@@ -125,17 +122,17 @@ namespace TimerProgram
 
         private void info_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Made by Sigma#8214\nConnor@connorcode.com","Sigma's Timer", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Made by Sigma#8214\nConnor@connorcode.com", "Sigma's Timer", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void info_MouseEnter(object sender, MouseEventArgs e)
         {
-            Reset_Copy.Fill = new SolidColorBrush(BkHv);
+            ResetCopy.Fill = new SolidColorBrush(BkHv);
         }
 
         private void info_MouseLeave(object sender, MouseEventArgs e)
         {
-           Reset_Copy.Fill = new SolidColorBrush(BkLv);
+            ResetCopy.Fill = new SolidColorBrush(BkLv);
         }
     }
 }
