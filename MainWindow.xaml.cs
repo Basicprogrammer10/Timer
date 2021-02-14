@@ -75,8 +75,8 @@ namespace TimerProgram
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             _runtime++;
-            var Sec = _runtime - (_runtime / 60) * 60;
-            var Min = (_runtime / 60) - (_runtime / 60) / 60 * 60;
+            var Sec = _runtime - ((_runtime / 60) * 60);
+            var Min = (_runtime / 60) - (((_runtime / 60) / 60) * 60);
             var Hor = _runtime / 60 / 60;
 
             MainTime.Text = string.Format("{2}:{1}:{0}", Sec.ToString().PadLeft(2, '0'), Min.ToString().PadLeft(2, '0'), Hor.ToString().PadLeft(2, '0'));
